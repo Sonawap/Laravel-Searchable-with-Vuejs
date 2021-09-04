@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoreController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('search.index');
 });
+
+
+Route::get('product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::get('store/{id}', [StoreController::class, 'show'])->name('store.show');
+
+
+
 
 // Auth::routes();
 
